@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/ChargerPanel.qml</file>
+        <!-- Components -->
+        <file>qml/components/qmldir</file>
+        <file>qml/components/Theme.qml</file>
+        <file>qml/components/TopBar.qml</file>
+        <file>qml/components/PortCard.qml</file>
+        <file>qml/components/Dialog.qml</file>
+        <!-- Screens -->
+        <file>qml/screens/qmldir</file>
+        <file>qml/screens/HomeScreen.qml</file>
+        <file>qml/screens/PortSelectionScreen.qml</file>
+        <file>qml/screens/AuthScreen.qml</file>
+        <file>qml/screens/ChargingScreen.qml</file>
+        <file>qml/screens/SessionDetailsScreen.qml</file>
+        <file>qml/screens/PaymentScreen.qml</file>
+        <file>qml/screens/HistoryScreen.qml</file>
+        <file>qml/screens/SettingsScreen.qml</file>
+    </qresource>
+</RCC>

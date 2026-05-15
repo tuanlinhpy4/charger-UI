@@ -1,0 +1,4 @@
+singleton Theme 1.0 Theme.qml
+Dialog 1.0 Dialog.qml
+PortCard 1.0 PortCard.qml
+TopBar 1.0 TopBar.qml

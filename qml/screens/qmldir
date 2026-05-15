@@ -1,0 +1,8 @@
+AuthScreen 1.0 AuthScreen.qml
+ChargingScreen 1.0 ChargingScreen.qml
+HistoryScreen 1.0 HistoryScreen.qml
+HomeScreen 1.0 HomeScreen.qml
+PaymentScreen 1.0 PaymentScreen.qml
+PortSelectionScreen 1.0 PortSelectionScreen.qml
+SessionDetailsScreen 1.0 SessionDetailsScreen.qml
+SettingsScreen 1.0 SettingsScreen.qml
