@@ -43,7 +43,7 @@ Brand: **GETECH** — thay thế VinFast ban đầu.
 │  │   ├─ Simulated charging curve (taper >80%)   │
 │  │   ├─ Session cost calculation               │
 │  │   └─ Authentication methods                 │
-│  ├─ OCPPManager (OCPP 1.6J client simulation)  │
+│  ├─ OCPPManager (OCPP 1.6J client/libocpp)     │
 │  └─ ChargerBackend (station info + clock)        │
 ├──────────────────────────────────────────────────┤
 │  Qt Property System (signal/slot)                │
@@ -146,13 +146,13 @@ Project đã có toolchain file tại `cmake/toolchains/nxp-imx93-yocto-sdk.cmak
   /opt/fsl-imx-xwayland/6.12.3-1.0.0/environment-setup-armv8a-poky-linux
 ```
 
-Nếu đã copy target sysroot vào `./sysroot`, script cũng tự nhận:
+Nếu đã copy target sysroot FRDM vào `./sysroot_frdm` hoặc EVK vào `./sysroot_evk`, script cũng tự nhận. Có thể ép sysroot bằng `EV_CHARGER_SYSROOT=/path/to/sysroot`:
 
 ```bash
 ./scripts/build-imx93-evk.sh
 ```
 
-Với local `./sysroot`, máy build vẫn cần host tools chạy được trên Ubuntu:
+Với local `./sysroot_evk`, máy build vẫn cần host tools chạy được trên Ubuntu:
 
 ```bash
 sudo apt install g++-aarch64-linux-gnu \
@@ -160,43 +160,71 @@ sudo apt install g++-aarch64-linux-gnu \
   qt6-base-dev qt6-declarative-dev pkg-config
 ```
 
-Lưu ý: compiler nằm trong `sysroot/usr/bin` của target là ARM64 binary và không chạy được trên host x86_64. Cấu hình local `./sysroot` của project dùng `pkg-config` từ sysroot để link Qt 6.5 target libs, đồng thời dùng `moc/rcc` host để generate code. Full Yocto SDK vẫn là lựa chọn chuẩn nhất cho release.
+Lưu ý: compiler nằm trong `sysroot_evk/usr/bin` của target là ARM64 binary và không chạy được trên host x86_64. Cấu hình local `./sysroot_evk` của project dùng `pkg-config` từ sysroot để link Qt 6.5 target libs, đồng thời dùng `moc/rcc` host để generate code. Full Yocto SDK vẫn là lựa chọn chuẩn nhất cho release.
 
 Hoặc chạy thủ công:
 
 ```bash
 source /opt/fsl-imx-xwayland/6.12.3-1.0.0/environment-setup-armv8a-poky-linux
-cmake -S . -B build-imx93 \
+cmake -S . -B build-imx93_evk \
   -DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/nxp-imx93-yocto-sdk.cmake \
+  -DYOCTO_TARGET_SYSROOT="$PWD/sysroot_frdm" \
+  -DEV_CHARGER_ENABLE_LIBOCPP=ON \
   -DCMAKE_BUILD_TYPE=Release
-cmake --build build-imx93 --parallel
+cmake --build build-imx93_evk --parallel
 ```
 
 Kiểm tra binary đúng AArch64:
 
 ```bash
-file build-imx93/ev_charger_ui
+file build-imx93_evk/ev_charger_ui
 ```
 
 Kết quả mong đợi có dạng `ELF 64-bit ... ARM aarch64`.
 
-### 3. Chạy trên board
+### 3. Chạy OCPP cloud demo trên máy PC trong LAN
 
-Copy binary sang board:
+Server demo không cần package ngoài, nhận WebSocket OCPP 1.6J và mở dashboard HTTP:
 
 ```bash
-scp build-imx93/ev_charger_ui root@<board-ip>:/usr/local/bin/
+python3 cloud/ocpp_local_server.py --host 0.0.0.0 --port 9000
+```
+
+Mở dashboard:
+
+```text
+http://<pc-ip>:9000/
+```
+
+Trên board, trỏ app về PC trong LAN:
+
+```bash
+export EV_CHARGER_CSMS_URL=ws://<pc-ip>:9000/ocpp
+export EV_CHARGER_CHARGE_BOX_ID=GT-EVSE-A001
+```
+
+`libocpp` sẽ tự nối thành path `/ocpp/GT-EVSE-A001`.
+
+### 4. Chạy trên board
+
+Nên stage bằng CMake install để copy cả binary, thư viện runtime Boost/libwebsockets và dữ liệu `share/everest/modules/OCPP`:
+
+```bash
+cmake --install build-imx93_evk --prefix /tmp/ev_charger_stage
+scp -r /tmp/ev_charger_stage/* root@<board-ip>:/usr/local/
 ```
 
 Nếu image có Weston/Wayland:
 
 ```bash
+EV_CHARGER_CSMS_URL=ws://<pc-ip>:9000/ocpp \
 QT_QPA_PLATFORM=wayland /usr/local/bin/ev_charger_ui
 ```
 
 Nếu chạy fullscreen trực tiếp qua DRM/KMS:
 
 ```bash
+EV_CHARGER_CSMS_URL=ws://<pc-ip>:9000/ocpp \
 QT_QPA_PLATFORM=eglfs /usr/local/bin/ev_charger_ui
 ```
 
@@ -209,7 +237,6 @@ qtdeclarative-qmlplugins qtquickcontrols2
 ## Mở rộng
 
 - Thay simulation bằng **CAN FD data thật** (qua SocketCAN)
-- Tích hợp **OCPP client** thật (libwebsocket hoặc QtWebSocket)
 - Kết nối **NFC PN7160** qua I2C
 - Kết nối **KM35x metrology** qua UART
 - Thêm **MQTT telemetry** cho cloud monitoring

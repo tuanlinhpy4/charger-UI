@@ -2,13 +2,13 @@
 #
 # Usage with a full Yocto SDK:
 #   source /opt/fsl-imx-xwayland/<version>/environment-setup-armv8a-poky-linux
-#   cmake -S . -B build-imx93 \
+#   cmake -S . -B build-imx93_evk \
 #     -DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/nxp-imx93-yocto-sdk.cmake
 #
 # Usage with a local target sysroot copied into this project:
-#   cmake -S . -B build-imx93 \
+#   cmake -S . -B build-imx93_evk \
 #     -DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/nxp-imx93-yocto-sdk.cmake \
-#     -DYOCTO_TARGET_SYSROOT=$PWD/sysroot
+#     -DYOCTO_TARGET_SYSROOT=$PWD/sysroot_evk
 #
 # The Yocto environment script exports the compiler, sysroot, pkg-config, and
 # Qt host tools. This file keeps CMake searches inside that SDK sysroot.
@@ -24,12 +24,12 @@ elseif(DEFINED ENV{SDKTARGETSYSROOT})
     set(_YOCTO_TARGET_SYSROOT "$ENV{SDKTARGETSYSROOT}")
 elseif(DEFINED ENV{OECORE_TARGET_SYSROOT})
     set(_YOCTO_TARGET_SYSROOT "$ENV{OECORE_TARGET_SYSROOT}")
-elseif(EXISTS "${_TOOLCHAIN_PROJECT_ROOT}/sysroot/usr")
-    set(_YOCTO_TARGET_SYSROOT "${_TOOLCHAIN_PROJECT_ROOT}/sysroot")
+elseif(EXISTS "${_TOOLCHAIN_PROJECT_ROOT}/sysroot_evk/usr")
+    set(_YOCTO_TARGET_SYSROOT "${_TOOLCHAIN_PROJECT_ROOT}/sysroot_evk")
 else()
     message(FATAL_ERROR
         "Yocto target sysroot not found. Source the SDK environment-setup-* file, "
-        "set YOCTO_TARGET_SYSROOT, or put the target sysroot at ./sysroot.")
+        "set YOCTO_TARGET_SYSROOT, or put the EVK target sysroot at ./sysroot_evk.")
 endif()
 
 if(NOT IS_DIRECTORY "${_YOCTO_TARGET_SYSROOT}/usr")
@@ -75,7 +75,7 @@ if(NOT CMAKE_CXX_COMPILER)
         "Host-executable AArch64 cross compiler not found. Source the Yocto SDK "
         "environment-setup-* file, install a host cross compiler such as "
         "aarch64-linux-gnu-g++, or pass -DCMAKE_CXX_COMPILER=/path/to/aarch64-g++. "
-        "Do not use ./sysroot/usr/bin/g++; it is an ARM64 target binary.")
+        "Do not use ./sysroot_evk/usr/bin/g++; it is an ARM64 target binary.")
 endif()
 
 set(CMAKE_SYSROOT "${_YOCTO_TARGET_SYSROOT}" CACHE PATH "Yocto target sysroot")

@@ -450,10 +450,10 @@ Rectangle {
 
                                         Repeater {
                                             model: [
-                                                { label: "CSMS URL", value: "wss://csms.getech.vn/ocpp" },
-                                                { label: "Charge Box ID", value: "GT-EVSE-A001" },
-                                                { label: "Protocol", value: "OCPP 1.6J" },
-                                                { label: "Heartbeat interval", value: "60s" }
+                                                { label: "CSMS URL", value: backend.ocpp.csmsUrl },
+                                                { label: "Charge Box ID", value: backend.ocpp.chargeBoxId },
+                                                { label: "Protocol", value: backend.ocpp.protocol },
+                                                { label: "Heartbeat interval", value: backend.ocpp.heartbeatInterval + "s" }
                                             ]
 
                                             Column { spacing: 2

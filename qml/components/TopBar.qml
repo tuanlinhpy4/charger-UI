@@ -5,12 +5,13 @@ import QtQuick.Layouts 1.15
 Rectangle {
     id: root
     color: "#16213e"
+    property bool compact: width <= 900
 
     RowLayout {
         anchors.fill: parent
-        anchors.leftMargin: 20
-        anchors.rightMargin: 20
-        spacing: 16
+        anchors.leftMargin: root.compact ? 10 : 20
+        anchors.rightMargin: root.compact ? 10 : 20
+        spacing: root.compact ? 8 : 16
 
         // Brand logo: G badge + GEE text
         Row {
@@ -50,6 +51,7 @@ Rectangle {
 
         // EVK info badge
         Rectangle {
+            visible: !root.compact
             Layout.alignment: Qt.AlignVCenter
             Layout.leftMargin: 8
             Layout.preferredWidth: Math.min(210, evkInfoText.implicitWidth + 20)
@@ -76,7 +78,7 @@ Rectangle {
         Row {
             spacing: 2
             Layout.alignment: Qt.AlignVCenter
-            Layout.leftMargin: 8
+            Layout.leftMargin: root.compact ? 0 : 8
 
             Repeater {
                 model: ListModel {
@@ -86,7 +88,8 @@ Rectangle {
                 }
 
                 Rectangle {
-                    width: navLabel.width + 32; height: 32
+                    width: navLabel.width + (root.compact ? 18 : 32)
+                    height: root.compact ? 30 : 32
                     radius: 8
                     color: navMouse.containsMouse ? Theme.bgLight : "transparent"
 
@@ -106,7 +109,7 @@ Rectangle {
                         anchors.centerIn: parent
                         text: model.label
                         color: parent.isActive ? Theme.textPrimary : Theme.textSecondary
-                        font.pixelSize: 12
+                        font.pixelSize: root.compact ? 11 : 12
                         font.weight: parent.isActive ? Font.DemiBold : Font.Normal
                     }
 
@@ -124,6 +127,7 @@ Rectangle {
 
         // 4 connection indicators
         Row {
+            visible: !root.compact
             spacing: 6
             Layout.alignment: Qt.AlignVCenter
 
@@ -184,6 +188,7 @@ Rectangle {
 
         // Language selector
         Rectangle {
+            visible: !root.compact
             width: 36; height: 28
             radius: 10
             color: Theme.bgLight
@@ -205,11 +210,12 @@ Rectangle {
             Text {
                 text: backend.currentTime
                 color: Theme.textPrimary
-                font.pixelSize: 14
+                font.pixelSize: root.compact ? 12 : 14
                 font.bold: true
                 horizontalAlignment: Text.AlignRight
             }
             Text {
+                visible: !root.compact
                 text: backend.currentDate
                 color: Theme.textMuted
                 font.pixelSize: 10

@@ -9,6 +9,14 @@ Rectangle {
 
     property string selectedPort: "A"
     property var currentPort: selectedPort === "A" ? backend.portA : backend.portB
+    property bool screenActive: true
+
+    onScreenActiveChanged: {
+        if (screenActive) {
+            powerChart.requestPaint()
+            gaugeCanvas.requestPaint()
+        }
+    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -356,7 +364,7 @@ Rectangle {
 
                                         Timer {
                                             interval: 2000
-                                            running: Theme.chartsEnabled
+                                            running: Theme.chartsEnabled && root.screenActive
                                             repeat: true
                                             onTriggered: powerChart.requestPaint()
                                         }
@@ -364,8 +372,14 @@ Rectangle {
                                         Component.onCompleted: requestPaint()
                                         Connections {
                                             target: currentPort
-                                            function onBatteryPercentChanged() { powerChart.requestPaint() }
-                                            function onCurrentPowerChanged() { powerChart.requestPaint() }
+                                            function onBatteryPercentChanged() {
+                                                if (Theme.chartsEnabled && root.screenActive)
+                                                    powerChart.requestPaint()
+                                            }
+                                            function onCurrentPowerChanged() {
+                                                if (Theme.chartsEnabled && root.screenActive)
+                                                    powerChart.requestPaint()
+                                            }
                                         }
                                     }
                                 }
@@ -384,12 +398,7 @@ Rectangle {
                             Layout.alignment: Qt.AlignHCenter
 
                             Repeater {
-                                model: [
-                                    { label: "SOC", value: Math.floor(currentPort.batteryPercent) + "%" },
-                                    { label: "Voltage", value: "400V" },
-                                    { label: "Current", value: (currentPort.currentPower / 400 * 1000).toFixed(0) + "A" },
-                                    { label: "Energy", value: currentPort.energyDelivered.toFixed(2) + " kWh" }
-                                ]
+                                model: ["SOC", "Voltage", "Current", "Energy"]
 
                                 Rectangle {
                                     radius: 7
@@ -403,13 +412,16 @@ Rectangle {
 
                                         Text {
                                             id: chipLabel
-                                            text: modelData.label
+                                            text: modelData
                                             color: Theme.textMuted
                                             font.pixelSize: 8
                                         }
 
                                         Text {
-                                            text: modelData.value
+                                            text: index === 0 ? Math.floor(currentPort.batteryPercent) + "%" :
+                                                  index === 1 ? "400V" :
+                                                  index === 2 ? (currentPort.currentPower / 400 * 1000).toFixed(0) + "A" :
+                                                  currentPort.energyDelivered.toFixed(2) + " kWh"
                                             color: Theme.textPrimary
                                             font.pixelSize: 12
                                             font.bold: true
@@ -606,7 +618,7 @@ Rectangle {
 
                                     Timer {
                                         interval: 1000
-                                        running: Theme.chartsEnabled
+                                        running: Theme.chartsEnabled && root.screenActive
                                         repeat: true
                                         onTriggered: gaugeCanvas.requestPaint()
                                     }
@@ -614,7 +626,10 @@ Rectangle {
                                     Component.onCompleted: requestPaint()
                                     Connections {
                                         target: currentPort
-                                        function onCurrentPowerChanged() { gaugeCanvas.requestPaint() }
+                                        function onCurrentPowerChanged() {
+                                            if (Theme.chartsEnabled && root.screenActive)
+                                                gaugeCanvas.requestPaint()
+                                        }
                                     }
                                 }
                             }

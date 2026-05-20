@@ -179,12 +179,7 @@ Rectangle {
                             }
 
                             Repeater {
-                                model: [
-                                    { label: "Đầu sạc", value: currentPort.name },
-                                    { label: "Điện năng", value: currentPort.energyDelivered.toFixed(3) + " kWh" },
-                                    { label: "Đơn giá", value: "3.500 đ/kWh" },
-                                    { label: "Phí dịch vụ", value: "30.000 đ" }
-                                ]
+                                model: ["Đầu sạc", "Điện năng", "Đơn giá", "Phí dịch vụ"]
 
                                 Rectangle {
                                     radius: 6
@@ -196,9 +191,18 @@ Rectangle {
                                         anchors.fill: parent
                                         anchors.margins: 10
 
-                                        Text { text: modelData.label; color: Theme.textMuted; font.pixelSize: 11; Layout.alignment: Qt.AlignVCenter }
+                                        Text { text: modelData; color: Theme.textMuted; font.pixelSize: 11; Layout.alignment: Qt.AlignVCenter }
                                         Item { Layout.fillWidth: true }
-                                        Text { text: modelData.value; color: Theme.textPrimary; font.pixelSize: 11; font.bold: true; Layout.alignment: Qt.AlignVCenter }
+                                        Text {
+                                            text: index === 0 ? currentPort.name :
+                                                  index === 1 ? currentPort.energyDelivered.toFixed(3) + " kWh" :
+                                                  index === 2 ? "3.500 đ/kWh" :
+                                                  "30.000 đ"
+                                            color: Theme.textPrimary
+                                            font.pixelSize: 11
+                                            font.bold: true
+                                            Layout.alignment: Qt.AlignVCenter
+                                        }
                                     }
                                 }
                             }
@@ -238,11 +242,7 @@ Rectangle {
                             anchors.margins: 14
 
                             Repeater {
-                                model: [
-                                    { label: "SOC", value: Math.floor(currentPort.batteryPercent) + "%" },
-                                    { label: "Công suất TB", value: currentPort.elapsedSeconds > 0 ? (currentPort.energyDelivered / (currentPort.elapsedSeconds / 3600)).toFixed(1) + " kW" : "—" },
-                                    { label: "Giờ", value: "Bình thường" }
-                                ]
+                                model: ["SOC", "Công suất TB", "Giờ"]
 
                                 Rectangle {
                                     Layout.fillWidth: true
@@ -251,8 +251,15 @@ Rectangle {
                                     Column {
                                         anchors.centerIn: parent
                                         spacing: 4
-                                        Text { text: modelData.label; color: Theme.textMuted; font.pixelSize: 11 }
-                                        Text { text: modelData.value; color: Theme.accent; font.pixelSize: 14; font.bold: true }
+                                        Text { text: modelData; color: Theme.textMuted; font.pixelSize: 11 }
+                                        Text {
+                                            text: index === 0 ? Math.floor(currentPort.batteryPercent) + "%" :
+                                                  index === 1 ? (currentPort.elapsedSeconds > 0 ? (currentPort.energyDelivered / (currentPort.elapsedSeconds / 3600)).toFixed(1) + " kW" : "—") :
+                                                  "Bình thường"
+                                            color: Theme.accent
+                                            font.pixelSize: 14
+                                            font.bold: true
+                                        }
                                     }
                                 }
                             }

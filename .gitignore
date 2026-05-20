@@ -4,3 +4,17 @@
 
 # Target sysroot
 /sysroot/
+/sysroot_*/
+/sysroots_*/
+
+# Local tooling/cache
+/.cache/
+/.venv*/
+__pycache__/
+*.py[cod]
+
+# Dependency source checkouts used to produce third_party/libocpp-frdm-install
+/third_party/boost-src/
+/third_party/libocpp/
+/third_party/everest-cmake/
+/third_party/everest-dev-environment/

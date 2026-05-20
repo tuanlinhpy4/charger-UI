@@ -8,6 +8,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QVariantList>
+#include <memory>
 
 class SessionRecord : public QObject
 {
@@ -166,6 +167,7 @@ class OCPPManager : public QObject
 
 public:
     explicit OCPPManager(QObject *parent = nullptr);
+    ~OCPPManager() override;
     bool connected() const { return m_connected; }
     QString csmsUrl() const { return m_csmsUrl; }
     QString chargeBoxId() const { return m_chargeBoxId; }
@@ -181,6 +183,10 @@ public:
     Q_INVOKABLE void sendAuthorizeRequest(const QString &idTag);
     Q_INVOKABLE void sendStartTransaction(int connectorId);
     Q_INVOKABLE void sendStopTransaction(int transactionId, int meterStop);
+    void beginChargingSession(int connectorId, const QString &sessionId,
+                              const QString &idTag, double meterStartWh);
+    void endChargingSession(int connectorId, const QString &sessionId,
+                            double meterStopWh, const QString &reason);
 
 signals:
     void connectionChanged();
@@ -188,16 +194,23 @@ signals:
     void meterValuesReceived(int connectorId, const QJsonObject &values);
     void transactionStarted(int connectorId, const QString &transactionId);
     void transactionStopped(int transactionId);
+    void remoteStopRequested(int connectorId);
 
 private:
-    bool m_connected = true;
+    class LibOcppClient;
+
+    void setConnected(bool connected);
+    QString normalizedIdTag(const QString &idTag) const;
+
+    bool m_connected = false;
     int m_reconnectAttempts = 0;
-    QString m_csmsUrl = "wss://csms.getech.vn/ocpp";
+    QString m_csmsUrl = "ws://172.29.18.51:9000/ocpp";
     QString m_chargeBoxId = "GT-EVSE-A001";
     QString m_protocol = "OCPP 1.6J";
     int m_heartbeatInterval = 60;
     QTimer m_heartbeatTimer;
     QTimer m_reconnectTimer;
+    std::unique_ptr<LibOcppClient> m_client;
 };
 
 class ChargerBackend : public QObject

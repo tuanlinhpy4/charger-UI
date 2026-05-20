@@ -375,14 +375,14 @@ Rectangle {
 
                                 Repeater {
                                     model: [
-                                        { label: "Đầu nối", value: "CCS2" },
-                                        { label: "Giao thức", value: "ISO 15118-2" },
-                                        { label: "Công suất TB", value: currentPort.elapsedSeconds > 0 ? (currentPort.energyDelivered / (currentPort.elapsedSeconds / 3600)).toFixed(1) + " kW" : "—" },
-                                        { label: "Dòng điện TB", value: currentPort.currentPower > 0 ? (currentPort.currentPower / 400 * 1000).toFixed(1) + " A" : "—" },
-                                        { label: "Điện áp TB", value: "400.0 V" },
-                                        { label: "Thời gian sạc", value: Theme.formatTime(currentPort.elapsedSeconds) },
-                                        { label: "Mã ID xe", value: "••••••••" },
-                                        { label: "OCPP", value: backend.ocppConnected ? "1.6J Online" : "Offline" }
+                                        "Đầu nối",
+                                        "Giao thức",
+                                        "Công suất TB",
+                                        "Dòng điện TB",
+                                        "Điện áp TB",
+                                        "Thời gian sạc",
+                                        "Mã ID xe",
+                                        "OCPP"
                                     ]
 
                                     Rectangle {
@@ -394,9 +394,16 @@ Rectangle {
                                         Column {
                                             anchors.centerIn: parent
                                             spacing: 2
-                                            Text { text: modelData.label; color: Theme.textMuted; font.pixelSize: 9 }
+                                            Text { text: modelData; color: Theme.textMuted; font.pixelSize: 9 }
                                             Text {
-                                                text: modelData.value
+                                                text: index === 0 ? "CCS2" :
+                                                      index === 1 ? "ISO 15118-2" :
+                                                      index === 2 ? (currentPort.elapsedSeconds > 0 ? (currentPort.energyDelivered / (currentPort.elapsedSeconds / 3600)).toFixed(1) + " kW" : "—") :
+                                                      index === 3 ? (currentPort.currentPower > 0 ? (currentPort.currentPower / 400 * 1000).toFixed(1) + " A" : "—") :
+                                                      index === 4 ? "400.0 V" :
+                                                      index === 5 ? Theme.formatTime(currentPort.elapsedSeconds) :
+                                                      index === 6 ? "••••••••" :
+                                                      backend.ocppConnected ? "1.6J Online" : "Offline"
                                                 color: Theme.textPrimary
                                                 font.pixelSize: 11
                                                 font.bold: true

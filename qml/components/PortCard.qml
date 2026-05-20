@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.15
 
 Item {
     id: root
+    property bool compact: height < 220
 
     property string portName: "Đầu sạc A"
     property string connectorType: "CCS2"
@@ -68,8 +69,8 @@ Item {
 
         ColumnLayout {
             anchors.fill: parent
-            anchors.margins: 16
-            spacing: 8
+            anchors.margins: root.compact ? 10 : 16
+            spacing: root.compact ? 5 : 8
 
             RowLayout {
                 Layout.fillWidth: true
@@ -86,7 +87,7 @@ Item {
                 Text {
                     text: root.portName
                     color: Theme.textPrimary
-                    font.pixelSize: 16
+                    font.pixelSize: root.compact ? 13 : 16
                     font.bold: true
                     Layout.alignment: Qt.AlignVCenter
                 }
@@ -113,7 +114,7 @@ Item {
                 Text {
                     text: root.maxPower + " kW"
                     color: Theme.accent
-                    font.pixelSize: 12
+                    font.pixelSize: root.compact ? 10 : 12
                     font.bold: true
                     Layout.alignment: Qt.AlignVCenter
                 }
@@ -122,7 +123,7 @@ Item {
             Rectangle {
                 Layout.alignment: Qt.AlignHCenter
                 width: statusText.implicitWidth + 28
-                height: 24
+                height: root.compact ? 20 : 24
                 radius: 12
                 color: root.stateColor(root.state)
 
@@ -131,21 +132,21 @@ Item {
                     anchors.centerIn: parent
                     text: root.stateText(root.state)
                     color: "#ffffff"
-                    font.pixelSize: 10
+                    font.pixelSize: root.compact ? 9 : 10
                     font.bold: true
                 }
             }
 
             Item {
                 Layout.alignment: Qt.AlignHCenter
-                Layout.preferredWidth: 72
-                Layout.preferredHeight: 96
+                Layout.preferredWidth: root.compact ? 48 : 72
+                Layout.preferredHeight: root.compact ? 42 : 96
 
                 Rectangle {
                     anchors.bottom: parent.bottom
                     anchors.horizontalCenter: parent.horizontalCenter
-                    width: 50
-                    height: 78
+                    width: root.compact ? 30 : 50
+                    height: root.compact ? 36 : 78
                     radius: 5
                     color: "transparent"
                     border.color: Theme.textMuted
@@ -156,32 +157,33 @@ Item {
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 3
                     anchors.horizontalCenter: parent.horizontalCenter
-                    width: 42
-                    height: root.state === 0 ? 0 : Math.max(4, 72 * root.batteryPercent / 100.0)
+                    width: root.compact ? 24 : 42
+                    height: root.state === 0 ? 0 : Math.max(4, (root.compact ? 30 : 72) * root.batteryPercent / 100.0)
                     radius: 3
                     color: root.state === 1 ? Theme.statusCharging : root.stateColor(root.state)
                 }
 
                 Rectangle {
                     anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 81
+                    anchors.bottomMargin: root.compact ? 39 : 81
                     anchors.horizontalCenter: parent.horizontalCenter
-                    width: 20
-                    height: 5
+                    width: root.compact ? 14 : 20
+                    height: root.compact ? 4 : 5
                     radius: 2
                     color: Theme.textMuted
                 }
 
                 Text {
                     anchors.centerIn: parent
-                    anchors.verticalCenterOffset: 8
+                    anchors.verticalCenterOffset: root.compact ? 3 : 8
                     text: root.displayBattery()
                     color: "#ffffff"
-                    font.pixelSize: 15
+                    font.pixelSize: root.compact ? 10 : 15
                     font.bold: true
                 }
 
                 Text {
+                    visible: !root.compact
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: parent.top
                     anchors.topMargin: 2
@@ -193,34 +195,32 @@ Item {
 
             Grid {
                 Layout.fillWidth: true
-                Layout.preferredHeight: 56
+                Layout.preferredHeight: root.compact ? 40 : 56
                 columns: 2
-                columnSpacing: 16
-                rowSpacing: 4
+                columnSpacing: root.compact ? 10 : 16
+                rowSpacing: root.compact ? 2 : 4
 
                 Repeater {
-                    model: [
-                        { label: "Năng lượng", value: root.energyDelivered.toFixed(2) + " kWh" },
-                        { label: "Công suất", value: root.currentPower.toFixed(1) + " kW" },
-                        { label: "Thời gian", value: root.displayTime() },
-                        { label: "Giá", value: root.displayCost() }
-                    ]
+                    model: ["Năng lượng", "Công suất", "Thời gian", "Giá"]
 
                     Column {
                         width: (parent.width - parent.columnSpacing) / 2
-                        height: 24
+                        height: root.compact ? 18 : 24
                         spacing: 1
 
                         Text {
-                            text: modelData.label
+                            text: modelData
                             color: Theme.textMuted
-                            font.pixelSize: 9
+                            font.pixelSize: root.compact ? 8 : 9
                         }
 
                         Text {
-                            text: modelData.value
+                            text: index === 0 ? root.energyDelivered.toFixed(2) + " kWh" :
+                                  index === 1 ? root.currentPower.toFixed(1) + " kW" :
+                                  index === 2 ? root.displayTime() :
+                                  root.displayCost()
                             color: Theme.textPrimary
-                            font.pixelSize: 11
+                            font.pixelSize: root.compact ? 9 : 11
                             font.bold: true
                         }
                     }
@@ -229,12 +229,12 @@ Item {
 
             RowLayout {
                 Layout.fillWidth: true
-                Layout.preferredHeight: 34
-                spacing: 8
+                Layout.preferredHeight: root.compact ? 28 : 34
+                spacing: root.compact ? 6 : 8
 
                 Rectangle {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: 34
+                    Layout.preferredHeight: root.compact ? 28 : 34
                     radius: 18
                     color: Theme.bgLight
 
@@ -242,7 +242,7 @@ Item {
                         anchors.centerIn: parent
                         text: "Chi tiết"
                         color: Theme.textSecondary
-                        font.pixelSize: 11
+                        font.pixelSize: root.compact ? 10 : 11
                         font.bold: true
                     }
 
@@ -254,7 +254,7 @@ Item {
 
                 Rectangle {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: 34
+                    Layout.preferredHeight: root.compact ? 28 : 34
                     radius: 18
                     color: root.state === 0 ? Theme.primary :
                            root.state === 1 ? Theme.statusError :
@@ -266,7 +266,7 @@ Item {
                               root.state === 1 ? "⏹  Dừng sạc" :
                               root.state === 2 ? "Thanh toán" : "Đặt lại"
                         color: root.state === 0 ? Theme.bgDark : "#ffffff"
-                        font.pixelSize: 11
+                        font.pixelSize: root.compact ? 9 : 11
                         font.bold: true
                     }
 
