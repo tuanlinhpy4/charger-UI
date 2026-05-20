@@ -1,6 +1,8 @@
+# GETECH EV Charging Station UI
 
+Giao diện HMI cho trạm sạc xe điện GETECH, phát triển trên nền **NXP EasyEVSE Development Platform** (i.MX 93, Linux OS, EVerest / ISO 15118).
 
-Giao diện HMI cho trạm sạc xe điện, phát triển trên nền **NXP EasyEVSE Development Platform** (i.MX 93, Linux OS, EVerest / ISO 15118).
+Brand: **GETECH** — thay thế VinFast ban đầu.
 
 ## Tính năng đầy đủ
 
