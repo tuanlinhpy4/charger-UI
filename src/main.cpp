@@ -7,6 +7,11 @@
 
 int main(int argc, char *argv[])
 {
+    if (qEnvironmentVariableIsEmpty("QT_QUICK_BACKEND"))
+        qputenv("QT_QUICK_BACKEND", QByteArrayLiteral("software"));
+    if (qEnvironmentVariableIsEmpty("QSG_RENDER_LOOP"))
+        qputenv("QSG_RENDER_LOOP", QByteArrayLiteral("basic"));
+
     QGuiApplication app(argc, argv);
 
     app.setApplicationName("GETECH EV Charger");
