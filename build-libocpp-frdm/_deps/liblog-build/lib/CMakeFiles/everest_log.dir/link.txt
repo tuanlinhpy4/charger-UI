@@ -1,0 +1,2 @@
+/usr/bin/aarch64-linux-gnu-ar qc libeverest_log.a CMakeFiles/everest_log.dir/logging.cpp.o CMakeFiles/everest_log.dir/trace.cpp.o
+/usr/bin/aarch64-linux-gnu-ranlib libeverest_log.a

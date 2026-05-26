@@ -1,0 +1,2 @@
+/usr/bin/aarch64-linux-gnu-ar qc libeverest_sqlite.a CMakeFiles/everest_sqlite.dir/everest/database/sqlite/statement.cpp.o CMakeFiles/everest_sqlite.dir/everest/database/sqlite/connection.cpp.o CMakeFiles/everest_sqlite.dir/everest/database/sqlite/schema_updater.cpp.o
+/usr/bin/aarch64-linux-gnu-ranlib libeverest_sqlite.a

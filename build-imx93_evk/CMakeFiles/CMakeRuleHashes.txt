@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+f2d859bf78d2a2e8d633d8617b8c8189 moc_chargerbackend.cpp
+42c0d1d603b23aefacd36c0d620a7df8 qrc_resources.cpp

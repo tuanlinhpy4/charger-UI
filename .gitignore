@@ -1,7 +1,3 @@
-# Build outputs
-/build/
-/build-*/
-
 # Target sysroot
 /sysroot/
 /sysroot_*/

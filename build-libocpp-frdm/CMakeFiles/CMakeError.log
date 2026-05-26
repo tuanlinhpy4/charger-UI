@@ -1,0 +1,172 @@
+Determining if the function _snprintf exists failed with the following output:
+Change Dir: /home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_cb5d0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_cb5d0.dir/build.make CMakeFiles/cmTC_cb5d0.dir/build
+gmake[1]: Entering directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cb5d0.dir/CheckFunctionExists.c.o
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm -DKEYWORD=__inline  -DCHECK_FUNCTION_EXISTS=_snprintf -o CMakeFiles/cmTC_cb5d0.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cb5d0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cb5d0.dir/link.txt --verbose=1
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm  -DCHECK_FUNCTION_EXISTS=_snprintf -L/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib -Wl,-rpath-link,/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib  CMakeFiles/cmTC_cb5d0.dir/CheckFunctionExists.c.o -o cmTC_cb5d0 
+/usr/lib/gcc-cross/aarch64-linux-gnu/11/../../../../aarch64-linux-gnu/bin/ld: CMakeFiles/cmTC_cb5d0.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_snprintf'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_cb5d0.dir/build.make:99: cmTC_cb5d0] Error 1
+gmake[1]: Leaving directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_cb5d0/fast] Error 2
+
+
+
+Determining if the function _vsnprintf exists failed with the following output:
+Change Dir: /home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f8f74/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f8f74.dir/build.make CMakeFiles/cmTC_f8f74.dir/build
+gmake[1]: Entering directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f8f74.dir/CheckFunctionExists.c.o
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm -DKEYWORD=__inline  -DCHECK_FUNCTION_EXISTS=_vsnprintf -o CMakeFiles/cmTC_f8f74.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f8f74
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f8f74.dir/link.txt --verbose=1
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm  -DCHECK_FUNCTION_EXISTS=_vsnprintf -L/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib -Wl,-rpath-link,/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib  CMakeFiles/cmTC_f8f74.dir/CheckFunctionExists.c.o -o cmTC_f8f74 
+/usr/lib/gcc-cross/aarch64-linux-gnu/11/../../../../aarch64-linux-gnu/bin/ld: CMakeFiles/cmTC_f8f74.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_vsnprintf'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_f8f74.dir/build.make:99: cmTC_f8f74] Error 1
+gmake[1]: Leaving directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_f8f74/fast] Error 2
+
+
+
+Determining if the function _atoi64 exists failed with the following output:
+Change Dir: /home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d39c3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d39c3.dir/build.make CMakeFiles/cmTC_d39c3.dir/build
+gmake[1]: Entering directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d39c3.dir/CheckFunctionExists.c.o
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm -DKEYWORD=__inline  -DCHECK_FUNCTION_EXISTS=_atoi64 -o CMakeFiles/cmTC_d39c3.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d39c3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d39c3.dir/link.txt --verbose=1
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm  -DCHECK_FUNCTION_EXISTS=_atoi64 -L/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib -Wl,-rpath-link,/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib  CMakeFiles/cmTC_d39c3.dir/CheckFunctionExists.c.o -o cmTC_d39c3 
+/usr/lib/gcc-cross/aarch64-linux-gnu/11/../../../../aarch64-linux-gnu/bin/ld: CMakeFiles/cmTC_d39c3.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_atoi64'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_d39c3.dir/build.make:99: cmTC_d39c3] Error 1
+gmake[1]: Leaving directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_d39c3/fast] Error 2
+
+
+
+Determining if the function _stat32i64 exists failed with the following output:
+Change Dir: /home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e7cd6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e7cd6.dir/build.make CMakeFiles/cmTC_e7cd6.dir/build
+gmake[1]: Entering directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e7cd6.dir/CheckFunctionExists.c.o
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm -DKEYWORD=__inline  -DCHECK_FUNCTION_EXISTS=_stat32i64 -o CMakeFiles/cmTC_e7cd6.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e7cd6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e7cd6.dir/link.txt --verbose=1
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm  -DCHECK_FUNCTION_EXISTS=_stat32i64 -L/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib -Wl,-rpath-link,/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib  CMakeFiles/cmTC_e7cd6.dir/CheckFunctionExists.c.o -o cmTC_e7cd6 
+/usr/lib/gcc-cross/aarch64-linux-gnu/11/../../../../aarch64-linux-gnu/bin/ld: CMakeFiles/cmTC_e7cd6.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `_stat32i64'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_e7cd6.dir/build.make:99: cmTC_e7cd6] Error 1
+gmake[1]: Leaving directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_e7cd6/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test LWS_HAVE_SYS_SOCKIO_H failed with the following output:
+Change Dir: /home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0cedc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0cedc.dir/build.make CMakeFiles/cmTC_0cedc.dir/build
+gmake[1]: Entering directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0cedc.dir/src.c.o
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm -DKEYWORD=__inline -DLWS_HAVE_SYS_SOCKIO_H   -o CMakeFiles/cmTC_0cedc.dir/src.c.o -c /home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp/src.c
+/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp/src.c:1:10: fatal error: sys/sockio.h: No such file or directory
+    1 | #include <sys/sockio.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_0cedc.dir/build.make:78: CMakeFiles/cmTC_0cedc.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_0cedc/fast] Error 2
+
+
+Source file was:
+#include <sys/sockio.h>
+void main(void) { while(1) ; } void xxexit(void){}
+Performing C SOURCE FILE Test LWS_HAVE_VFORK_H failed with the following output:
+Change Dir: /home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_45153/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_45153.dir/build.make CMakeFiles/cmTC_45153.dir/build
+gmake[1]: Entering directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_45153.dir/src.c.o
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm -DKEYWORD=__inline -DLWS_HAVE_VFORK_H   -o CMakeFiles/cmTC_45153.dir/src.c.o -c /home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp/src.c
+/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp/src.c:1:10: fatal error: vfork.h: No such file or directory
+    1 | #include <vfork.h>
+      |          ^~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_45153.dir/build.make:78: CMakeFiles/cmTC_45153.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_45153/fast] Error 2
+
+
+Source file was:
+#include <vfork.h>
+void main(void) { while(1) ; } void xxexit(void){}
+Performing C SOURCE FILE Test LWS_HAVE_NET_IF_ETHER_H failed with the following output:
+Change Dir: /home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e911f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e911f.dir/build.make CMakeFiles/cmTC_e911f.dir/build
+gmake[1]: Entering directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e911f.dir/src.c.o
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm -DKEYWORD=__inline -DLWS_HAVE_NET_IF_ETHER_H   -o CMakeFiles/cmTC_e911f.dir/src.c.o -c /home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp/src.c
+/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp/src.c:2:10: fatal error: net/if_ether.h: No such file or directory
+    2 | #include <net/if_ether.h>
+      |          ^~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_e911f.dir/build.make:78: CMakeFiles/cmTC_e911f.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_e911f/fast] Error 2
+
+
+Source file was:
+#include <sys/types.h>
+#include <net/if_ether.h>
+ void main(void) { while (1) ; } void xxexit(void){}
+Determining if the function SSL_CTX_EVP_PKEY_new_raw_private_key exists failed with the following output:
+Change Dir: /home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_dc937/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_dc937.dir/build.make CMakeFiles/cmTC_dc937.dir/build
+gmake[1]: Entering directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dc937.dir/CheckFunctionExists.c.o
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm -DKEYWORD=__inline  -Wno-deprecated-declarations -Wno-deprecated -Wall -Wextra -Wno-unused-parameter -Wconversion -Wsign-compare -Wstrict-aliasing -fvisibility=hidden -Wundef  -Wuninitialized -Wtype-limits -Wignored-qualifiers   -Werror -DCHECK_FUNCTION_EXISTS=SSL_CTX_EVP_PKEY_new_raw_private_key -o CMakeFiles/cmTC_dc937.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_dc937
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dc937.dir/link.txt --verbose=1
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm -Wno-deprecated-declarations -Wno-deprecated -Wall -Wextra -Wno-unused-parameter -Wconversion -Wsign-compare -Wstrict-aliasing -fvisibility=hidden -Wundef  -Wuninitialized -Wtype-limits -Wignored-qualifiers   -Werror -DCHECK_FUNCTION_EXISTS=SSL_CTX_EVP_PKEY_new_raw_private_key -L/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib -Wl,-rpath-link,/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib  CMakeFiles/cmTC_dc937.dir/CheckFunctionExists.c.o -o cmTC_dc937  /home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib/libssl.so /home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib/libcrypto.so /home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib/libcap.so -ldl -lpthread 
+/usr/lib/gcc-cross/aarch64-linux-gnu/11/../../../../aarch64-linux-gnu/bin/ld: CMakeFiles/cmTC_dc937.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `SSL_CTX_EVP_PKEY_new_raw_private_key'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_dc937.dir/build.make:102: cmTC_dc937] Error 1
+gmake[1]: Leaving directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_dc937/fast] Error 2
+
+
+
+Determining if the function RSA_verify_pss_mgf1 exists failed with the following output:
+Change Dir: /home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ec604/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ec604.dir/build.make CMakeFiles/cmTC_ec604.dir/build
+gmake[1]: Entering directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ec604.dir/CheckFunctionExists.c.o
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm -DKEYWORD=__inline  -Wno-deprecated-declarations -Wno-deprecated -Wall -Wextra -Wno-unused-parameter -Wconversion -Wsign-compare -Wstrict-aliasing -fvisibility=hidden -Wundef  -Wuninitialized -Wtype-limits -Wignored-qualifiers   -Werror -DCHECK_FUNCTION_EXISTS=RSA_verify_pss_mgf1 -o CMakeFiles/cmTC_ec604.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ec604
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ec604.dir/link.txt --verbose=1
+/usr/bin/aarch64-linux-gnu-gcc --sysroot=/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm -Wno-deprecated-declarations -Wno-deprecated -Wall -Wextra -Wno-unused-parameter -Wconversion -Wsign-compare -Wstrict-aliasing -fvisibility=hidden -Wundef  -Wuninitialized -Wtype-limits -Wignored-qualifiers   -Werror -DCHECK_FUNCTION_EXISTS=RSA_verify_pss_mgf1 -L/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib -Wl,-rpath-link,/home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib  CMakeFiles/cmTC_ec604.dir/CheckFunctionExists.c.o -o cmTC_ec604  /home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib/libssl.so /home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib/libcrypto.so /home/anhtu/Downloads/ev_charger_ui/sysroot_frdm/usr/lib/libcap.so -ldl -lpthread 
+/usr/lib/gcc-cross/aarch64-linux-gnu/11/../../../../aarch64-linux-gnu/bin/ld: CMakeFiles/cmTC_ec604.dir/CheckFunctionExists.c.o: in function `main':
+CheckFunctionExists.c:(.text+0x10): undefined reference to `RSA_verify_pss_mgf1'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_ec604.dir/build.make:102: cmTC_ec604] Error 1
+gmake[1]: Leaving directory '/home/anhtu/Downloads/ev_charger_ui/build-libocpp-frdm/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_ec604/fast] Error 2
+
+
+

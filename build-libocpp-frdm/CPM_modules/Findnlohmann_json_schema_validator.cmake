@@ -1,0 +1,3 @@
+include("/home/anhtu/Downloads/ev_charger_ui/third_party/everest-cmake/3rd_party/CPM.cmake")
+CPMAddPackage("NAME;nlohmann_json_schema_validator;GIT_REPOSITORY;https://github.com/pboettch/json-schema-validator;GIT_TAG;2.3.0;OPTIONS;JSON_VALIDATOR_INSTALL OFF;JSON_VALIDATOR_BUILD_TESTS OFF;JSON_VALIDATOR_BUILD_EXAMPLES OFF;JSON_VALIDATOR_BUILD_SHARED_LIBS ON")
+set(nlohmann_json_schema_validator_FOUND TRUE)

@@ -1,0 +1,23 @@
+{
+	"BUILD_DIR" : "/home/linh/ev_charger_ui/build/ev_charger_ui_autogen",
+	"CMAKE_BINARY_DIR" : "/home/linh/ev_charger_ui/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/linh/ev_charger_ui/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/linh/ev_charger_ui",
+	"CMAKE_SOURCE_DIR" : "/home/linh/ev_charger_ui",
+	"INCLUDE_DIR" : "/home/linh/ev_charger_ui/build/ev_charger_ui_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/linh/ev_charger_ui/qml/ChargerPanel.qml",
+		"/home/linh/ev_charger_ui/qml/main.qml"
+	],
+	"LOCK_FILE" : "/home/linh/ev_charger_ui/build/CMakeFiles/ev_charger_ui_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt5/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/linh/ev_charger_ui/build/CMakeFiles/ev_charger_ui_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/linh/ev_charger_ui/resources.qrc",
+	"VERBOSITY" : 0
+}

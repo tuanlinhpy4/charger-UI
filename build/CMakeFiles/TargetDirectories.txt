@@ -1,0 +1,4 @@
+/home/linh/ev_charger_ui/build/CMakeFiles/ev_charger_ui.dir
+/home/linh/ev_charger_ui/build/CMakeFiles/edit_cache.dir
+/home/linh/ev_charger_ui/build/CMakeFiles/rebuild_cache.dir
+/home/linh/ev_charger_ui/build/CMakeFiles/ev_charger_ui_autogen.dir

@@ -1,0 +1,7 @@
+/home/anhtu/Downloads/ev_charger_ui/build-imx93_evk/CMakeFiles/ev_charger_ui.dir
+/home/anhtu/Downloads/ev_charger_ui/build-imx93_evk/CMakeFiles/edit_cache.dir
+/home/anhtu/Downloads/ev_charger_ui/build-imx93_evk/CMakeFiles/rebuild_cache.dir
+/home/anhtu/Downloads/ev_charger_ui/build-imx93_evk/CMakeFiles/list_install_components.dir
+/home/anhtu/Downloads/ev_charger_ui/build-imx93_evk/CMakeFiles/install.dir
+/home/anhtu/Downloads/ev_charger_ui/build-imx93_evk/CMakeFiles/install/local.dir
+/home/anhtu/Downloads/ev_charger_ui/build-imx93_evk/CMakeFiles/install/strip.dir
